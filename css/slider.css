@@ -1,43 +1,67 @@
-/* slider.css */
 nav a {
-    font-family: 'Montserrat', sans-serif; /* Ustaw czcionkę dla linków w nawigacji */
-}
-
-.slider-container {
+    font-family: "Montserrat", sans-serif;
+  }
+  
+  .slider-container {
     position: relative;
     width: 100%;
-    overflow: hidden; /* Ukrywa zdjęcia poza kontenerem */
-}
-
-.slider-images {
+    overflow: hidden;
+  }
+  
+  .slider-images {
     display: flex;
-    transition: transform 0.5s ease-in-out; /* Płynne przejścia */
-    width: 100%; /* Ustaw szerokość kontenera slidera na 100% */
-}
-
-.slider-image {
-    width: 100%; /* Każde zdjęcie powinno mieć szerokość 100% kontenera */
-    flex-shrink: 0; /* Zapobiega kurczeniu zdjęć */
-}
-
-.dots {
+    transition: transform 0.5s ease-in-out;
+    width: 110%;
+  }
+  
+  .slider-image {
+    width: 110%;
+    flex-shrink: 0;
+  }
+  
+  .dots {
     position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     gap: 8px;
-    z-index: 2; /* Zapewnia, że kropki są na wierzchu */
-}
-
-.dot {
+    z-index: 2;
+  }
+  
+  .dot {
     width: 10px;
     height: 10px;
     border-radius: 50%;
     background-color: #bbb;
     cursor: pointer;
-}
-
-.dot.active {
+  }
+  
+  .dot.active {
     background-color: #333;
-}
+  }
+  
+  .highlight-background {
+    background-color: #fbb800;
+    color: #3a3a3a;
+    height: 55px;
+    transform: rotate(1deg);
+    position: relative;
+    top: 10px;
+    right: -10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    text-align: center;
+  }
+  
+  .font-24 {
+    font-size: 24px;
+  }
+  
+  .font-20 {
+    font-size: 20px;
+  }
+  

@@ -1,13 +1,13 @@
+// slider.js
 document.addEventListener("DOMContentLoaded", function () {
     const sliderImages = document.querySelector('.slider-images');
     const dots = document.querySelectorAll('.dot');
     let currentIndex = 0;
 
     function updateSlider(index) {
-        // Sprawdź, czy index jest prawidłowy
         if (index < 0 || index >= dots.length) return;
 
-        sliderImages.style.transform = `translateX(-${index * 100}%)`;
+        sliderImages.style.transform = `translateX(-${index * 103}%)`;
         dots.forEach(dot => dot.classList.remove('active'));
         dots[index].classList.add('active');
         currentIndex = index;
