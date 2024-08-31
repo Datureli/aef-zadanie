@@ -1,85 +1,79 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Projekt z Tailwind</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link type="text/css" rel="stylesheet" href="/css/styles.css" />
-  </head>
-  <body>
-    <!-- Czarny pasek -->
+    <link rel="stylesheet" href="css/slider.css">
+    <link rel="stylesheet" href="css/fonts.css">
+</head>
+<body>
     <div class="w-full h-[34px] bg-[#3a3a3a]"></div>
 
-    <!-- Nawigacja -->
-    <nav
-      class="bg-white text-white p-4 grid grid-cols-3 items-center navbar-custom"
-    >
-      <!-- Logo -->
-      <div class="flex justify-start ml-14">
-        <img src="./logo.png" alt="Logo" class="h-10" />
-      </div>
+    <nav class="bg-white text-black p-4 grid grid-cols-3 items-center shadow-md rounded-t-lg relative">
+        <div class="flex justify-start md:ml-14 ml-0">
+            <img src="./logo.png" alt="Logo" class="h-10 md:ml-0 ml-4" />
+        </div>
 
-      <!-- Linki nawigacyjne -->
-      <div class="flex justify-center">
-        <ul class="flex space-x-6">
-          <li>
-            <a href="#" class="text-black hover:text-lime-500 link-active"
-              >Home</a
-            >
-          </li>
-          <li>
-            <a href="#" class="text-black hover:text-lime-500 link-active"
-              >Dlaczego</a
-            >
-          </li>
-          <li>
-            <a href="#" class="text-black hover:text-lime-500 link-active"
-              >Jak się zapisać?</a
-            >
-          </li>
-          <li>
-            <a href="#" class="text-black hover:text-lime-500 link-active"
-              >FAQ</a
-            >
-          </li>
-          <li>
-            <a href="#" class="text-black hover:text-lime-500 link-active"
-              >Kontakt</a
-            >
-          </li>
-        </ul>
-      </div>
+        <div class="md:hidden flex items-center justify-end absolute inset-y-0 right-0 pr-4">
+            <button id="menu-btn" class="text-2xl">
+                <span class="sr-only">Menu</span>
+                &#9776;
+            </button>
+        </div>
 
-      <!-- Prawa strona nawigacji -->
-      <div class="flex justify-end"></div>
+        <div class="hidden md:flex md:justify-center">
+            <ul class="flex space-x-6">
+                <li><a href="#" class="text-black hover:text-lime-500">Home</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">Dlaczego</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">Jak się zapisać?</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">FAQ</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">Kontakt</a></li>
+            </ul>
+        </div>
+        
+        <div id="mobile-menu" class="fixed inset-0 bg-white z-50 hidden flex flex-col pt-4 px-4">
+            <div class="flex justify-end">
+                <button id="close-menu" class="text-2xl">
+                    &times;
+                </button>
+            </div>
+            <ul class="flex flex-col items-center space-y-4 mt-4">
+                <li><a href="#" class="text-black hover:text-lime-500">Home</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">Dlaczego</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">Jak się zapisać?</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">FAQ</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">Kontakt</a></li>
+            </ul>
+        </div>
     </nav>
 
-    <!-- Kontener z tekstem po lewej i obrazkiem po prawej -->
     <div class="container mx-auto mt-10">
-      <div class="flex flex-col md:flex-row items-center">
-        <!-- Lewa strona (tekst) -->
-        <div class="md:w-1/2 p-4">
-          <h1 class="text-3xl font-bold mb-4">Tytuł Sekcji</h1>
-          <p class="mb-4">
-            Pierwszy akapit tekstu, który znajduje się po lewej stronie. Można
-            tutaj wpisać dowolną treść.
-          </p>
-          <p>
-            Drugi akapit tekstu, kontynuujący poprzedni. Również znajduje się po
-            lewej stronie obok obrazu.
-          </p>
+        <div class="flex flex-col md:flex-row items-center">
+            <div class="md:w-1/2 p-4">
+                <h1 class="text-4xl font-bold mb-4">Studia po angielsku w AEH</h1>
+                <p class="mb-4">Otwórz sobie drzwi do międzynarodowej kariery!</p>
+                <p>Czy wiesz, że studia po angielsku w Akademii Ekonomiczno-Humanistycznej mogą znacząco zmienić Twoją przyszłość zawodową? Wybierając anglojęzyczny program studiów w AEH, zyskasz nie tylko przewagę w późniejszych procesach rekrutacyjnych, ale też umiejętności komunikacyjne umożliwiające pracę w międzynarodowych firmach oraz łatwiejszy dostęp do rynków pracy na całym świecie.</p>
+            </div>
+            <div class="md:w-1/2 p-4 relative slider-container">
+                <div class="slider-images">
+                    <img src="./public/images/slide1.png" alt="Obraz 1" class="slider-image" />
+                    <img src="./public/images/slide2.png" alt="Obraz 2" class="slider-image" />
+                    <img src="./public/images/slide3.png" alt="Obraz 3" class="slider-image" />
+                    <img src="./public/images/slide4.png" alt="Obraz 4" class="slider-image" />
+                </div>
+                <div class="dots">
+                    <div class="dot active" data-index="0"></div>
+                    <div class="dot" data-index="1"></div>
+                    <div class="dot" data-index="2"></div>
+                    <div class="dot" data-index="3"></div>
+                </div>
+            </div>
         </div>
-        <!-- Prawa strona (obraz) -->
-        <div class="md:w-1/2 p-4">
-          <img
-            src="https://via.placeholder.com/500x300"
-            alt="Opis obrazu"
-            class="w-full h-auto rounded-lg shadow-md"
-          />
-        </div>
-      </div>
     </div>
-  </body>
-</html>
 
+    <script src="js/slider.js"></script>
+    <script src="js/navigation.js"></script>
+</body>
+</html>
