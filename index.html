@@ -15,14 +15,27 @@
     <div class="w-full h-[34px] bg-[#3a3a3a]"></div>
 
     <!-- Nawigacja -->
-    <nav class="bg-white text-white p-4">
-        <ul class="flex justify-center space-x-6">
-            <li><a href="#" class="text-black hover:text-lime-500">Home</a></li>
-            <li><a href="#" class="text-black hover:text-lime-500">Dlaczego</a></li>
-            <li><a href="#" class="text-black hover:text-lime-500">Jak się zapisać?</a></li>
-            <li><a href="#" class="text-black hover:text-lime-500">FAQ</a></li>
-            <li><a href="#" class="text-black hover:text-lime-500">Kontakt</a></li>
-        </ul>
+    <nav class="bg-white text-white p-4 grid grid-cols-3 items-center">
+        <!-- Logo -->
+        <div class="flex justify-start ml-14">
+            <img src="./logo.png" alt="Logo" class="h-10">
+        </div>
+
+        <!-- Linki nawigacyjne -->
+        <div class="flex justify-center">
+            <ul class="flex space-x-6">
+                <li><a href="#" class="text-black hover:text-lime-500">Home</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">Dlaczego</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">Jak się zapisać?</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">FAQ</a></li>
+                <li><a href="#" class="text-black hover:text-lime-500">Kontakt</a></li>
+            </ul>
+        </div>
+
+        <!-- Prawa strona nawigacji -->
+        <div class="flex justify-end">
+
+        </div>
     </nav>
 </body>
 </html>
