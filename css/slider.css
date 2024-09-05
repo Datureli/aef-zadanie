@@ -73,23 +73,3 @@ body {
 .font-20 {
   font-size: 1rem;
 }
-
-/* Kontener z obrazkiem */
-.image-container {
-  position: relative;
-  width: 23.33%; /* 1/3 szerokości kontenera */
-  height: 400px; /* Pełna wysokość rodzica */
-  overflow: hidden; /* Ukrywa część obrazka wychodzącą poza kontener */
-  display: flex; /* Umożliwia centrowanie obrazka */
-  align-items: center; /* Wyrównuje obrazek w pionie */
-  justify-content: flex-start; /* Wyrównuje obrazek w poziomie */
-  margin-bottom: 200px;
-}
-
-/* Obrazek */
-.squares-image {
-  position: absolute;
-  left: -20px; /* Przesunięcie obrazka poza ekran */
-  width: 150px; /* Szerokość obrazka */
-  height: auto; /* Automatyczna wysokość, aby zachować proporcje */
-}
