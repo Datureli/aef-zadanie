@@ -1,61 +1,81 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const slides = [
+      "./public/images/slide1.png",
+      "./public/images/slide2.png",
+      "./public/images/slide3.png",
+      "./public/images/slide4.png"
+    ];
+    
     const sliderImagesContainer = document.querySelector('.slider-images');
     const dotsContainer = document.querySelector('.dots');
   
-    const images = [
-      './public/images/slide1.png',
-      './public/images/slide2.png',
-      './public/images/slide3.png',
-      './public/images/slide4.png'
-    ];
+    // Funkcja generująca slajdy i kropki
+    function generateSlidesAndDots() {
+      slides.forEach((slide, index) => {
+        // Tworzymy elementy slajdów
+        const img = document.createElement('img');
+        img.src = slide;
+        img.alt = `Obraz ${index + 1}`;
+        img.classList.add('slider-image');
+        sliderImagesContainer.appendChild(img);
+        
+        // Tworzymy kropki
+        const dot = document.createElement('div');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+        dot.setAttribute('data-index', index);
+        dotsContainer.appendChild(dot);
+      });
+    }
   
-    // Dodajemy obrazy do kontenera
-    images.forEach((image, index) => {
-      const imgElement = document.createElement('img');
-      imgElement.src = image;
-      imgElement.alt = `Obraz ${index + 1}`;
-      imgElement.classList.add('slider-image');
-      sliderImagesContainer.appendChild(imgElement);
-  
-      // Tworzymy kropki
-      const dotElement = document.createElement('div');
-      dotElement.classList.add('dot');
-      dotElement.dataset.index = index;
-  
-      if (index === 0) {
-        dotElement.classList.add('active');
-      }
-  
-      dotsContainer.appendChild(dotElement);
-    });
-  
-    const dots = document.querySelectorAll('.dot');
     let currentIndex = 0;
   
     function updateSlider(index) {
-      if (index < 0 || index >= dots.length) return;
+      if (index < 0 || index >= slides.length) return;
   
       sliderImagesContainer.style.transform = `translateX(-${index * 103}%)`;
-      dots.forEach((dot) => dot.classList.remove('active'));
+      const dots = document.querySelectorAll('.dot');
+      dots.forEach(dot => dot.classList.remove('active'));
       dots[index].classList.add('active');
       currentIndex = index;
     }
   
-    // Dodaj event listener do kropek
-    dots.forEach((dot) => {
-      dot.addEventListener('click', () => {
-        const index = parseInt(dot.getAttribute('data-index'));
+    function showPrevSlide() {
+      const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+      updateSlider(prevIndex);
+    }
+  
+    function showNextSlide() {
+      const nextIndex = (currentIndex + 1) % slides.length;
+      updateSlider(nextIndex);
+    }
+  
+    // Generowanie slajdów i kropek
+    generateSlidesAndDots();
+  
+    // Obsługa kliknięć na kropki
+    dotsContainer.addEventListener('click', (event) => {
+      if (event.target.classList.contains('dot')) {
+        const index = parseInt(event.target.getAttribute('data-index'));
         updateSlider(index);
-      });
+      }
     });
   
-    // Automatyczne przesuwanie co 5 sekund
+    // Obsługa automatycznego przesuwania
     setInterval(() => {
-      const nextIndex = (currentIndex + 1) % dots.length;
-      updateSlider(nextIndex);
+      showNextSlide();
     }, 5000);
   
-    // Inicjalna aktualizacja slidera
+    // Obsługa strzałek na klawiaturze
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowLeft') {
+        showPrevSlide();
+      } else if (event.key === 'ArrowRight') {
+        showNextSlide();
+      }
+    });
+  
+    // Inicjalizacja slidera
     updateSlider(currentIndex);
   });
   
